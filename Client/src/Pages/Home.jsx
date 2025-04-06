@@ -3,6 +3,7 @@ import Header from '../Components/Header'
 import Steps from '../Components/Steps'
 import Description from '../Components/Description'
 import Testimonials from '../Components/Testimonials'
+import Generatebtn from '../Components/Generatebtn'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Steps/>
       <Description/>
       <Testimonials/>
+      <Generatebtn/>
     </div>
   )
 }
