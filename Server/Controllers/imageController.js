@@ -1,7 +1,8 @@
 import axios from "axios";
 import userModel from "../Models/userModel.js";
 import FormData from "form-data";
-import { response } from "express";
+import dotenv from "dotenv";
+dotenv.config();
 export const generateImage = async (req, res) => {
   try {
     const { userId, prompt } = req.body;

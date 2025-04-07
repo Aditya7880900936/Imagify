@@ -1,14 +1,42 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { assets } from "../assets/assets";
 import { motion } from "motion/react";
+import { AppContext } from "../Context/AppContext";
 const Result = () => {
   const [image, setImage] = useState(assets.sample_img_1);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState("");
 
+  const { generateImage, user } = useContext(AppContext);
+
+  if (!user) {
+    return (
+      <div className="min-h-[90vh] flex justify-center items-center text-white text-lg">
+        Loading user...
+      </div>
+    );
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!input) return;
+    console.log("User object:", user);
+    if (!user?.id) {
+      console.error("User not loaded yet");
+      return;
+    }
+
+    setLoading(true);
+
+    const resultImage = await generateImage(input);
+    if (resultImage) {
+      setIsImageLoaded(true);
+      setImage(resultImage);
+    }
+
+    setLoading(false);
   };
 
   return (

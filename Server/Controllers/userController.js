@@ -63,13 +63,17 @@ const loginUser = async (req, res) => {
 
 const userCredits = async (req, res) => {
   try {
-    const { userId } = req.body;
+    const  userId  = req.userId; // Extracted from the request body by the auth middleware
+    if (!userId) {
+      return res.status(400).json({ success: false, message: "User ID not found" });
+    }
 
     const user = await userModel.findById(userId);
     res.json({
       success: true,
       credits: user.creditBalance,
       user: {
+        id: user._id,
         name: user.name,
       },
     });
