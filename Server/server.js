@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://imagify-adi.vercel.app/", // Replace with your frontend's URL
+    origin: "https://imagify-adi.vercel.app", // Replace with your frontend's URL
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })

@@ -6,7 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 const Login = () => {
   const [state, setState] = useState("Login");
-  const { setShowLogin, backendUrl, setToken, credit, setCredit, setUser, loadCreditsData } =
+  const { setShowLogin, backendUrl, setToken, credit, setCredit, setUser} =
     useContext(AppContext);
 
   const [name, setName] = useState("");
