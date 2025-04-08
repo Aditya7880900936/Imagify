@@ -4,11 +4,11 @@ import Home from "./Pages/Home";
 import BuyCredit from "./Pages/BuyCredit";
 import Result from "./Pages/Result";
 import Navbar from "./Components/Navbar";
-import Footer from "./Components/footer";
 import Login from "./Components/Login";
 import { AppContext } from "./Context/AppContext";
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from "./Components/FooterElement";
 const App = () => {
   const { showLogin } = useContext(AppContext);
 
