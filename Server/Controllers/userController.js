@@ -27,12 +27,12 @@ const registerUser = async (req, res) => {
       password: hashedPassword,
     });
 
-    const newUser = new userModel(userData);
-    const user = await newUser.save();
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+    // const newUser = new userModel(userData);
+    // const user = await newUser.save();
+    const token = jwt.sign({ id: userData._id }, process.env.JWT_SECRET, {
       expiresIn: "30d",
     });
-    res.json({ success: true, user: { name: user.name }, token });
+    res.json({ success: true, user: { name: userData.name }, token });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
